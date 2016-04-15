@@ -1,6 +1,0 @@
-<h2>Edit Solutions</h2>
-
-<%= form_for @solution, method: :patch, url: lecture_task_solution_path(@lecture, @task, @solution) do |f| %>
-	<%= f.label :body %> <%= f.text_area :body %>
-	<%= f.submit %>
-<% end %>

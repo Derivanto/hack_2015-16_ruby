@@ -1,9 +1,0 @@
-<% if current_user %>
-  Signed in as <%= current_user.f_name %> <%= current_user.l_name %> <br>
-  email: <%= current_user.email %> <br>
-  remebered: <%= session[:expires_at] %> <br>
-  <%= link_to "Logout", '/logout' %>
-<% else %>
-	\o/ Hello and welcome to my page!!!  \o/ <br>
-  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-<% end %>
