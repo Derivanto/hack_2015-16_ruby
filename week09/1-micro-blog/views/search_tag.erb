@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>#<%= "#{tag}" %></title>
+</head>
+<body>
+	<% allPosts.each do |id, post| %>
+		<% if post.tags.include? tag %>
+			<% has_tag = true %>
+			<h3><%= post.title %></h3>
+			<pre><%= post.text %></pre>
+		<% end %>
+	<% end %>
+	<% unless has_tag %>
+		There are no posts with this tag: <%= tag %>
+	<% end %>
+</body>
+</html>

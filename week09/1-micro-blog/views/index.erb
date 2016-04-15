@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>All Posts</title>
+</head>
+<body>
+	<% if allPosts.blank? %>
+	<h3><%= "There are no posts for now." %></h3>
+	You can add new post from
+	<a href="/new">here</a>.
+	<% else %>
+		<% allPosts.each do |id, post| %>
+		<h3><%= post.title %></h3>
+		<pre><%= post.text %></pre>
+		<% end %>
+	<%end%>
+</body>
+</html>

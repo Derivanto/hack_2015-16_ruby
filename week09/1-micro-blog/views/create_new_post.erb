@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>New post</title>
+</head>
+<body>
+
+	<h3>Here you can add a new post</h3>
+	<form action="/new" method="POST">
+	  
+	  Post title:<br>
+	  <input type="text" name="title" maxlength="100" size="50">
+	  <br>
+
+	  Post content: <small>(max 256 characters)</small><br>
+	  <textarea name="content" cols="70" rows="7" maxlength="256"></textarea>
+	  <br>
+	  
+	  <input type="submit" value="Submit">
+	</form>
+
+</body>
+</html>

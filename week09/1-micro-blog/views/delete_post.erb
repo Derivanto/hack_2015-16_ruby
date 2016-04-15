@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Delete post</title>
+</head>
+<body>
+	
+	<p>You are about to delete this post: 
+	<h3><%= allPosts[id].title %></h3>
+	<pre><%= allPosts[id].text %></pre></p>
+  <form action="/<%= id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Ok">
+    <a href="/">Cancel</a>
+  </form>
+
+</body>
+</html>
