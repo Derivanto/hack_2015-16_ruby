@@ -1,94 +1,94 @@
 class NumberSet
-	include Enumerable
+  include Enumerable
 
-	attr_reader :numbers
+  attr_reader :numbers
 
-	def initialize
-		@numbers = []
-	end
+  def initialize
+    @numbers = []
+  end
 
-	def each(&block)
+  def each(&block)
       @numbers.each(&block)
     end
 
 #Fixnum, Float, Rational и Complex
-	def <<(value)
-		@numbers << value unless @numbers.include? value
-	end
+  def <<(value)
+    @numbers << value unless @numbers.include? value
+  end
 
-	def size
-		@numbers.length
-	end
+  def size
+    @numbers.length
+  end
 
-	def empty?
-		@numbers.size == 0
-	end
+  def empty?
+    @numbers.size == 0
+  end
 
-	def [](filters)
-		filtered_numbers = NumberSet.new
-			numbers.each { |value| filtered_numbers << value if filters.filter(value) }
-		filtered_numbers
-	end
+  def [](filters)
+    filtered_numbers = NumberSet.new
+      numbers.each { |value| filtered_numbers << value if filters.filter(value) }
+    filtered_numbers
+  end
 
 end
 
 module Operators
 
-	def &(other)
-		Filter.new { |value| self.filter(value) and other.filter(value) }
-	end
+  def &(other)
+    Filter.new { |value| self.filter(value) and other.filter(value) }
+  end
 
-	def |(other)
-		Filter.new { |value| self.filter(value) or other.filter(value) }
-	end
+  def |(other)
+    Filter.new { |value| self.filter(value) or other.filter(value) }
+  end
 
 end
 
 class Filter
-	include Operators
+  include Operators
 
-	def initialize(&block)
-		@block = block
-	end
+  def initialize(&block)
+    @block = block
+  end
 
-	def filter(value)
-		@block.call value
-	end
+  def filter(value)
+    @block.call value
+  end
 
 end
 
 class TypeFilter
-	include Operators
+  include Operators
 
-	def initialize(type)
-		@type = type
-	end
+  def initialize(type)
+    @type = type
+  end
 
-	def filter(value)
-		case @type
-		when :integer then value.is_a? Integer
-		when :real then value.is_a? Float or value.is_a? Rational
-		when :complex then value.is_a? Complex
-		end
-	end
+  def filter(value)
+    case @type
+    when :integer then value.is_a? Integer
+    when :real then value.is_a? Float or value.is_a? Rational
+    when :complex then value.is_a? Complex
+    end
+  end
 
 end
 
 class SignFilter
-	include Operators
+  include Operators
 
-	def initialize(sign)
-		@sign = sign
-	end
+  def initialize(sign)
+    @sign = sign
+  end
 
-	def filter(value)
-		case @sign
-		when :positive then value > 0
-		when :non_positive then value <= 0
-		when :negative then value < 0
-		when :non_negative then value >= 0
-		end
-	end
+  def filter(value)
+    case @sign
+    when :positive then value > 0
+    when :non_positive then value <= 0
+    when :negative then value < 0
+    when :non_negative then value >= 0
+    end
+  end
 
 end
 

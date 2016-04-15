@@ -1,31 +1,31 @@
 class Array
 
-	def to_hash
-		hash = Hash.new
-		self.each { |element| hash[element[0]] = element[1] }
-		hash
+  def to_hash
+    hash = Hash.new
+    self.each { |element| hash[element[0]] = element[1] }
+    hash
 
-		#inject(Hash.new) { |hash, (key,value)| hash[key] = value; hash}
-	end
+    #inject(Hash.new) { |hash, (key,value)| hash[key] = value; hash}
+  end
 
-	def index_by
-		hash = Hash.new
-		self.each { |element| hash[yield element] = element }
-		hash
-	end
+  def index_by
+    hash = Hash.new
+    self.each { |element| hash[yield element] = element }
+    hash
+  end
 
-	def subarray_count(subarray)
-		return 0 if subarray.length == 0
-		count = 0
-		self.each_cons(subarray.length) {|arr| count+=1 if arr == subarray}
-		count
-	end
+  def subarray_count(subarray)
+    return 0 if subarray.length == 0
+    count = 0
+    self.each_cons(subarray.length) {|arr| count+=1 if arr == subarray}
+    count
+  end
 
-	def occurences_count
-		hash = Hash.new(0)
-		self.each {|element| hash[element] += 1}
-		hash
-	end
+  def occurences_count
+    hash = Hash.new(0)
+    self.each {|element| hash[element] += 1}
+    hash
+  end
 
 end
 

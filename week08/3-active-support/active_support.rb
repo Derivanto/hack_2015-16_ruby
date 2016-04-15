@@ -1,24 +1,24 @@
 class Object
 
-	def blank?
-		return true if self == nil or self == false
+  def blank?
+    return true if self == nil or self == false
 
-		return true if self.is_a? String and ( self =~ /^\s*$/ )
+    return true if self.is_a? String and ( self =~ /^\s*$/ )
 
-		return true if self.respond_to? :empty? and self.empty?
-		false
-	end
+    return true if self.respond_to? :empty? and self.empty?
+    false
+  end
 
-	def present?
-		!blank?
-	end
+  def present?
+    !blank?
+  end
 
-	def presence
-		return self if self.present?
-	end
+  def presence
+    return self if self.present?
+  end
 
-	#def try
-	#end
+  #def try
+  #end
 
 end
 
