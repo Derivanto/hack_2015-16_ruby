@@ -1,0 +1,8 @@
+<h2>Create Tasks</h2>
+
+<%= form_for( @task, url: lecture_tasks_path(@lecture) ) do |f| %>
+	<%= f.label :name %> <%= f.text_field :name %>
+	<%= f.label :description %> <%= f.text_area :description %>
+	<%= f.submit %>
+<% end %>
+

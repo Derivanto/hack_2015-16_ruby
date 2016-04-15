@@ -1,0 +1,7 @@
+<h2>Users</h2>
+<ul>
+	<% @users.each do |user| %>
+		<li><%= user.inspect %></li>
+	<% end %>
+</ul>
+<%= link_to "Signup", new_user_path %>

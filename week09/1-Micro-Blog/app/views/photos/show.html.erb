@@ -1,0 +1,21 @@
+<style>
+body {
+	img {
+	    width:100%;
+	}
+}
+</style>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo:</strong>
+  <br>
+  <img src=<%= @photo.url %> alt="Picture" style="width:128px;height:128px;">
+</p>
+
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

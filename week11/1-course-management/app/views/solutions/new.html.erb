@@ -1,0 +1,6 @@
+<h2>Create Solutions</h2>
+
+<%= form_for( @solution, url: lecture_task_solutions_path(@lecture, @task) ) do |f| %>
+	<%= f.label :body %> <%= f.text_area :body %>
+	<%= f.submit %>
+<% end %>

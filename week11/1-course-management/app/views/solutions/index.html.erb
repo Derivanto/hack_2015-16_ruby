@@ -1,0 +1,7 @@
+<h2>Solutions</h2>
+<ul>
+	<% @solutions.each do |solution| %>
+		<li><%= solution.inspect %></li>
+	<% end %>
+</ul>
+<%= link_to "Create Solution", new_lecture_task_solution_path(@lecture,@task)%>
